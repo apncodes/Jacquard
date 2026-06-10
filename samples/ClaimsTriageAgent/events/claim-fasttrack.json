@@ -1,0 +1,12 @@
+{
+  "claimId": "CLM-2026-60101",
+  "policyNumber": "POL-100234",
+  "claimantName": "Sarah Mitchell",
+  "incidentDate": "2026-06-05",
+  "reportedDate": "2026-06-06",
+  "lossType": "collision",
+  "incidentDescription": "Another driver backed into my rear bumper in the grocery store parking lot at low speed. Small dent and scraped paint on the rear bumper, no other damage. We exchanged information and I have photos of both vehicles.",
+  "location": "Columbus, OH",
+  "vehicle": "2021 Honda Accord EX",
+  "claimedAmount": 1800
+}
