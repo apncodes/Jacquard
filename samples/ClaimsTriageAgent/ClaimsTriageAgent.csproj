@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>ClaimsTriageAgent</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <!-- NativeAOT: single self-contained binary, no JIT warm-up on Lambda cold start -->
+    <PublishAot>true</PublishAot>
+    <StripSymbols>true</StripSymbols>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <!-- IL2026/IL3050 come from generated tool wrappers and the Lambda serializer internals
+         (parameter types here are simple strings — statically analyzable and AOT-safe).
+         IL2104 comes from AWSSDK.Core, which is not fully trim-annotated yet. -->
+    <NoWarn>$(NoWarn);IL2026;IL3050;IL2104</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- AWS Lambda custom-runtime bootstrap (provided.al2023) -->
+    <PackageReference Include="Amazon.Lambda.Core" Version="2.5.0" />
+    <PackageReference Include="Amazon.Lambda.RuntimeSupport" Version="1.12.0" />
+    <PackageReference Include="Amazon.Lambda.Serialization.SystemTextJson" Version="2.4.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Jacquard.NET agent SDK — Core includes Anthropic, OpenAI, and Gemini model providers -->
+    <PackageReference Include="Jacquard.Core" Version="0.1.13" />
+    <!-- Bedrock model provider (for MODEL_PROVIDER=bedrock, the default) -->
+    <PackageReference Include="Jacquard.Models.Bedrock" Version="0.1.13" />
+    <!-- Compile-time only: emits ITool wrappers + IToolProvider for [Tool] methods -->
+    <PackageReference Include="Jacquard.SourceGenerator" Version="0.1.13"
+                      OutputItemType="Analyzer"
+                      ReferenceOutputAssembly="false" />
+  </ItemGroup>
+
+</Project>

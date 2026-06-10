@@ -1,0 +1,12 @@
+{
+  "claimId": "CLM-2026-60104",
+  "policyNumber": "POL-447210",
+  "claimantName": "Janet Wu",
+  "incidentDate": "2026-06-07",
+  "reportedDate": "2026-06-08",
+  "lossType": "hail",
+  "incidentDescription": "Severe hailstorm while the car was parked outside at the office. The windshield is shattered, the hood and roof are covered in deep dents, and the airbag warning light is now on. The car is not safe to drive.",
+  "location": "Plano, TX",
+  "vehicle": "2024 BMW X5 xDrive40i",
+  "claimedAmount": 28500
+}
