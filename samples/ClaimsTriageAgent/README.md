@@ -86,23 +86,44 @@ dotnet run -- --local events/claim-adjuster.json    # → ADJUSTER_REVIEW
 
 ### With Anthropic
 
+**macOS / Linux:**
 ```bash
 ANTHROPIC_API_KEY=sk-ant-... MODEL_PROVIDER=anthropic \
   dotnet run -- --local events/claim-fasttrack.json
 ```
 
+**Windows (PowerShell):**
+```powershell
+$env:MODEL_PROVIDER = "anthropic"; $env:ANTHROPIC_API_KEY = "sk-ant-..."
+dotnet run -- --local events/claim-fasttrack.json
+```
+
 ### With OpenAI
 
+**macOS / Linux:**
 ```bash
 OPENAI_API_KEY=sk-... MODEL_PROVIDER=openai \
   dotnet run -- --local events/claim-fasttrack.json
 ```
 
+**Windows (PowerShell):**
+```powershell
+$env:MODEL_PROVIDER = "openai"; $env:OPENAI_API_KEY = "sk-..."
+dotnet run -- --local events/claim-fasttrack.json
+```
+
 ### With Gemini
 
+**macOS / Linux:**
 ```bash
 GEMINI_API_KEY=AI... MODEL_PROVIDER=gemini \
   dotnet run -- --local events/claim-fasttrack.json
+```
+
+**Windows (PowerShell):**
+```powershell
+$env:MODEL_PROVIDER = "gemini"; $env:GEMINI_API_KEY = "AI..."
+dotnet run -- --local events/claim-fasttrack.json
 ```
 
 ## Deploy to AWS Lambda
